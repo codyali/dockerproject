@@ -1,0 +1,20 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t liyakat/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true liyakat/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t liyakat/multi-client ./client
+  - docker build -t liyakat/multi-nginx ./nginx
+  - docker build -t liyakat/multi-server ./server
+  - docker build -t liyakat/multi-worker ./worker
+  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push liyakat/multi-client
+  - docker push liyakat/multi-nginx
+  - docker push liyakat/multi-server
+  - docker push liyakat/multi-worker
