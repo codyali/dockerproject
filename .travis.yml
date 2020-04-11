@@ -23,10 +23,11 @@ deploy:
   edge: true
   provider: elasticbeanstalk
   region: ap-southeast-2
-  app: MultiDocker-env
+  env: MultiDocker-env
+  app: multi-docker
   bucket: elasticbeanstalk-ap-southeast-2-284947593819
   bucket_path: multi-docker
   on:
     branch: master
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
