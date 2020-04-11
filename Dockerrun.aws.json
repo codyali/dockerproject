@@ -3,28 +3,28 @@
   "containerDefinations": [
     {
       "name": "client",
-      "image": "stephengrider/multi-client",
+      "image": "liyakat/multi-client",
       "hostname": "client",
       "essential": false,
       "memory": 256
     },
     {
       "name": "server",
-      "image": "stephengrider/server-client",
+      "image": "liyakat/server-client",
       "hostname": "api",
       "essential": false,
       "memory": 256
     },
     {
       "name": "worker",
-      "image": "stephengrider/worker-client",
+      "image": "liyakat/worker-client",
       "hostname": "worker",
       "essential": false,
       "memory": 256
     },
     {
       "name": "nginx",
-      "image": "stephengrider/worker-nginx",
+      "image": "liyakat/worker-nginx",
       "hostname": "nginx",
       "essential": true,
       "memory": 256,
